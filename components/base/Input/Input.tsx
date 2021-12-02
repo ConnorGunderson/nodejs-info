@@ -5,19 +5,19 @@ import styles from './input.module.css'
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'className'> {
   children: React.ReactNode
-  className?: AddClassNames<['container', 'label', 'input']>
+  classNames?: AddClassNames<['container', 'label', 'input']>
 }
 
-export const Input = ({ className, children, id, ...props }: InputProps) => {
+export const Input = ({ classNames, children, id, ...props }: InputProps) => {
   return (
     <div
-      className={styles['input-container'] + ` ${className?.container || ''}`}
+      className={styles['input-container'] + ` ${classNames?.container || ''}`}
     >
-      <label htmlFor={id} className={className?.label || ''}>
+      <label htmlFor={id} className={classNames?.label || ''}>
         {children}
       </label>
       <input
-        className={styles['input'] + ` ${className?.label || ''}`}
+        className={styles['input'] + ` ${classNames?.label || ''}`}
         placeholder="..."
         id={id}
         {...props}
