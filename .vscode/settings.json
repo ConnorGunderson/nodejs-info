@@ -2,7 +2,8 @@
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
   "eslint.validate": [
     "javascript",
@@ -10,6 +11,7 @@
     "typescript",
     "typescriptreact"
   ],
+  "stylelint.validate": ["css", "scss"],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "eslint.alwaysShowStatus": true
 }

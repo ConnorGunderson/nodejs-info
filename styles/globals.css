@@ -8,8 +8,14 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
-  font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family:
+    BlinkMacSystemFont,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 a {
