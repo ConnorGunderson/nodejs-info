@@ -8,7 +8,7 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
-  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica,
+  font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
 }
 
@@ -22,10 +22,10 @@ a {
 }
 
 #__next {
-  @apply h-full 
-    w-screen 
+  @apply h-full
+    w-screen
     flex
-    flex-col 
-    bg-nodeLight-100 
-    text-nodeBlack-900;
+    flex-col
+    bg-light
+    text-dark;
 }

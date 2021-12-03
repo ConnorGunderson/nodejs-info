@@ -1,15 +1,13 @@
 .navbar {
-  @apply
-    w-full 
-    h-12 
-    p-2 
-    flex 
-    items-center 
-    bg-nodeDark-500 
-    text-nodeLight-100
+  @apply w-full
+    text-light
+    bg-nodeDark-5
+    h-12
+    p-2
+    flex
+    items-center;
 }
 
 .header {
-  @apply
-    text-xl
+  @apply text-xl;
 }

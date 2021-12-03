@@ -22,7 +22,6 @@
     "prettier": "^2.5.0",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",
-    "stylelint-scss": "^4.0.0",
     "typescript": "^4.5.2"
   },
   "prettier": {
@@ -30,81 +29,5 @@
     "tabWidth": 2,
     "semi": false,
     "singleQuote": true
-  },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "react-app",
-      "plugin:import/recommended",
-      "plugin:import/react",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "rules": {
-      "import/no-anonymous-default-export": 1,
-      "import/no-named-as-default": 0,
-      "import/named": 0,
-      "import/order": [
-        1,
-        {
-          "groups": [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index"
-          ],
-          "newlines-between": "always"
-        }
-      ],
-      "no-console": 1,
-      "no-debugger": "warn",
-      "react/button-has-type": 1,
-      "react/jsx-boolean-value": 1,
-      "react/jsx-curly-brace-presence": 1,
-      "react/jsx-fragments": 1,
-      "react/jsx-key": 2,
-      "react/jsx-no-duplicate-props": 1,
-      "react/jsx-no-useless-fragment": 1,
-      "react/jsx-pascal-case": 1,
-      "react/jsx-sort-props": [
-        1,
-        {
-          "noSortAlphabetically": true,
-          "reservedFirst": true,
-          "callbacksLast": true
-        }
-      ],
-      "react/no-danger": 2,
-      "react/no-unknown-property": 1
-    },
-    "settings": {
-      "import/resolver": {
-        "webpack": {
-          "config": {
-            "resolve": {
-              "extensions": [
-                ".js",
-                ".jsx",
-                ".ts",
-                ".tsx"
-              ],
-              "modules": [
-                "src",
-                "node_modules"
-              ]
-            }
-          }
-        }
-      }
-    }
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "defaultSeverity": "warning",
-    "rules": {
-      "no-invalid-position-at-import-rule": null,
-      "at-rule-no-unknown": null
-    }
   }
 }

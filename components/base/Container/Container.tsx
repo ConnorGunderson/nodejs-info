@@ -5,12 +5,12 @@ import styles from './container.module.css'
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLDivElement>, 'className'> {
   children: React.ReactNode
-  className?: AddClassNames<['container']>
+  classNames?: AddClassNames<['container']>
 }
 
-export const Container = ({ className, children, ...props }: InputProps) => {
+export const Container = ({ classNames, children, ...props }: InputProps) => {
   return (
-    <div className={styles['container'] + ` ${className?.container || ''}`}>
+    <div className={styles['container'] + ` ${classNames?.container || ''}`}>
       {children}
     </div>
   )
