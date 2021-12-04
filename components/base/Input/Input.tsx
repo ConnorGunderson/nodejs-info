@@ -1,6 +1,6 @@
 import { AddClassNames } from '@global/types/react'
 import { InputHTMLAttributes } from 'react'
-import styles from './input.module.css'
+import styles from './Input.module.css'
 
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'className'> {
@@ -13,7 +13,10 @@ export const Input = ({ classNames, children, id, ...props }: InputProps) => {
     <div
       className={styles['input-container'] + ` ${classNames?.container || ''}`}
     >
-      <label htmlFor={id} className={classNames?.label || ''}>
+      <label
+        htmlFor={id}
+        className={styles['label'] + ` ${classNames?.label || ''}`}
+      >
         {children}
       </label>
       <input

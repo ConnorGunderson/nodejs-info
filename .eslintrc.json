@@ -3,8 +3,11 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
-  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "airbnb-typescript"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -12,6 +15,6 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["prettier", "react", "import", "jsx-a11y", "react-hooks", "next"],
   "rules": {}
 }

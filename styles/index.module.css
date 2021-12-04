@@ -1,0 +1,16 @@
+.landing-navbar {
+  @apply bg-gradient-to-tr w-full h-1/3 flex flex-col items-center justify-center text-light from-nodeDark-3 to-nodeLight-1 shadow-xl;
+}
+
+.landing-header {
+  @apply flex items-center text-4xl font-bold
+}
+
+.landing-header-logo {
+  @apply text-nodeDark-4 animate-bounce
+}
+
+
+.landing-aside {
+  @apply my-2 text-lg
+}

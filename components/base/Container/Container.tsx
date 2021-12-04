@@ -1,6 +1,6 @@
 import { AddClassNames } from '@global/types/react'
 import { InputHTMLAttributes } from 'react'
-import styles from './container.module.css'
+import styles from './Container.module.css'
 
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLDivElement>, 'className'> {

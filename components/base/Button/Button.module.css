@@ -1,0 +1,11 @@
+.button {
+  @apply flex bg-nodeDark-3 hover:bg-nodeDark-2 transform duration-200 rounded px-2 ring-2 ring-nodeLight-2 hover:ring-nodeDark-6 text-light ;
+}
+
+.anchor-button {
+  @apply cursor-pointer bg-nodeDark-3 hover:bg-nodeDark-2 transform duration-200 rounded px-2 ring-2 ring-nodeLight-2 hover:ring-nodeDark-6 text-light ;
+}
+
+.reverse {
+  @apply cursor-pointer bg-transparent text-dark hover:bg-nodeDark-2 transform duration-200 rounded px-2 ring-2 ring-transparent hover:ring-nodeDark-6 hover:text-light
+}

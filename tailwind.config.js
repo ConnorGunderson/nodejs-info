@@ -10,6 +10,7 @@ module.exports = {
           3: '#3c873a',
           4: '#306c2e',
           5: '#245123',
+          6: '#183617',
         },
         nodeLight: {
           1: '#a4c6a1',
@@ -28,10 +29,26 @@ module.exports = {
         dark: '#131313',
         light: '#e1ece0',
       },
+      animation: {
+        wiggle: 'wiggle 10s cubic-bezier(.31,.41,1,.1) infinite',
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-10deg)' },
+          '50%': { transform: 'rotate(10deg)' },
+        },
+        'wiggle-and-bounce': {
+          '0%, 100%': { transform: 'rotate(-10deg)' },
+          '50%': { transform: 'rotate(10deg)' },
+        },
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      ringWidth: ['hover'],
+      ringColor: ['hover'],
+    },
   },
   plugins: [],
 }

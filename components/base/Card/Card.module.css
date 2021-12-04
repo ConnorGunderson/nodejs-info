@@ -1,0 +1,7 @@
+.card {
+  @apply flex flex-col p-2 shadow-lg rounded-md
+}
+
+.card-body {
+  @apply flex flex-col
+}

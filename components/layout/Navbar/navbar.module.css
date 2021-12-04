@@ -1,11 +1,5 @@
 .navbar {
-  @apply w-full
-    text-light
-    bg-nodeDark-5
-    h-12
-    p-2
-    flex
-    items-center;
+  @apply w-full text-light bg-nodeDark-5 h-12 p-2 flex items-center;
 }
 
 .header {
