@@ -1,0 +1,7 @@
+.node-header {
+  @apply flex items-center font-bold cursor-pointer
+}
+
+.node-header-logo {
+  @apply text-nodeDark-5 animate-bounce 
+}

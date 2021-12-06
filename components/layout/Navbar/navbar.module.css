@@ -1,7 +1,4 @@
 .navbar {
-  @apply w-full text-light bg-nodeDark-5 h-12 p-2 flex items-center;
+  @apply bg-gradient-to-tr w-full text-light from-nodeDark-3 to-nodeLight-1 h-12 p-2 flex items-center;
 }
 
-.header {
-  @apply text-xl;
-}
