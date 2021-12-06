@@ -5,7 +5,7 @@ export const PageLayout = ({ children }: ComponentWithChildren) => {
   return (
     <>
       <Navbar />
-      <div>{children}</div>
+      <div className="flex-1 flex items-center justify-center">{children}</div>
     </>
   )
 }

@@ -109,6 +109,7 @@ const Carousel = ({
           {items.map((item) => {
             return (
               <CarouselItem
+                key={item.name}
                 className={items[step].name !== item.name ? 'opacity-70' : ''}
                 onClick={(e: React.MouseEvent<HTMLDivElement>) => handleStep(e)}
                 width={'33%'}
