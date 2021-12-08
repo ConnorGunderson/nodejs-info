@@ -6,7 +6,8 @@
   "extends": [
     "plugin:react/recommended",
     "eslint:recommended",
-    "airbnb-typescript"
+    "airbnb",
+    "airbnb/hooks"
   ],
   "parserOptions": {
     "ecmaFeatures": {

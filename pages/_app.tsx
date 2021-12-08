@@ -1,6 +1,8 @@
 import * as React from 'react'
 
 import '@styles/globals.css'
+import { Provider } from 'react-redux'
+import { store } from 'store/store'
 
 const App = ({
   Component,
@@ -9,7 +11,11 @@ const App = ({
   Component: () => JSX.Element
   pageProps: { [x: string]: any }
 }) => {
-  return <Component {...pageProps} />
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  )
 }
 
 export default App

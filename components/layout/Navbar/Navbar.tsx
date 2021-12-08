@@ -1,45 +1,32 @@
 import { NodeHeader } from '@components/custom'
-import { ComponentWithChildren } from '@global/types/react'
-import { Module, modules } from 'global/meta'
+import { modules } from 'global/meta'
 import { useRouter } from 'next/dist/client/router'
-import React, {
-  Children,
-  cloneElement,
-  HTMLAttributes,
-  ReactChild,
-  ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
-import { FaChevronCircleLeft, FaNodeJs } from 'react-icons/fa'
+import React, { HTMLAttributes, useEffect, useState } from 'react'
+import { FaChevronCircleLeft } from 'react-icons/fa'
+import { useChangeRoute } from 'store/hooks'
 import styles from './Navbar.module.css'
 
 export const Navbar = () => {
-  const router = useRouter()
   return (
     <>
       <nav className={styles['navbar']}>
         <NodeHeader classNames={{ header: 'text-2xl' }} />
-        <ModuleList initialPath="assert" />
+        <ModuleList />
       </nav>
     </>
   )
 }
 
-interface ModuleListProps {
-  initialPath: string
-}
-
-const delay = 2500
-
-const ModuleList = ({ initialPath }: ModuleListProps) => {
-  const [index, setIndex] = useState<number>(() => {
-    const mod = modules.find((module) => module.name == initialPath)
+const ModuleList = () => {
+  const router = useRouter()
+  const [index] = useState<number>(() => {
+    const mod = modules.find(
+      (module) => module.name == router.asPath.split('#')[1]
+    )
     return mod ? modules.indexOf(mod) : -1
   })
-
-  return <Carousel initialIndex={index} initialItems={modules} />
+  console.log(index)
+  return <Carousel moduleIndex={index} items={modules} />
 }
 interface CarouselItemProps extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
@@ -66,16 +53,13 @@ const CarouselItem = ({
 type NamedItem = { name: string }
 
 const Carousel = ({
-  initialIndex,
-  initialItems,
+  moduleIndex,
+  items,
 }: {
-  initialIndex: number
-  initialItems: NamedItem[]
+  moduleIndex: number
+  items: NamedItem[]
 }) => {
-  const [items, setitems] = useState<NamedItem[]>(initialItems)
-  const [step, setStep] = useState<number>(
-    initialIndex === 0 ? 1 : initialIndex
-  )
+  const [step, setStep] = useState<number>(moduleIndex)
 
   const handleStep = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
@@ -83,10 +67,8 @@ const Carousel = ({
       (item) => item.name === e.currentTarget.innerText
     )
 
-    if (foundItem?.name === 'REPLACE') return null
-
     const itemIndex = foundItem ? items.indexOf(foundItem) : -1
-    return foundItem && setStep(itemIndex)
+    return setStep(itemIndex)
   }
 
   const handleChevron = () => {
