@@ -15,5 +15,5 @@
 }
 
 .sub-section h3 {
-  @apply px-1 py-0.5 inline rounded shadow-lg bg-nodeLight-1 font-semibold inline-block hover:bg-nodeLight-1 duration-150 cursor-pointer hover:ring-nodeDark-1 hover:ring-2
+  @apply px-1 py-0.5 rounded shadow-lg bg-nodeLight-1 font-semibold inline-block hover:bg-nodeLight-1 duration-150 cursor-pointer hover:ring-nodeDark-1 hover:ring-2
 }
