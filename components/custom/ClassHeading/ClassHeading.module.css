@@ -1,0 +1,3 @@
+.heading {
+  @apply px-1 rounded shadow-md text-xl font-bold text-nodeLight-3 bg-black hover:bg-nodeDark-5
+}

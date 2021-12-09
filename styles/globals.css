@@ -28,5 +28,5 @@ a {
 }
 
 #__next {
-  @apply h-full w-screen flex flex-col bg-light text-dark;
+  @apply h-screen w-screen flex flex-col bg-light text-dark;
 }

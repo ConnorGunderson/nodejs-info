@@ -2,7 +2,7 @@
 export type Module = { name: string; description?: string }
 
 export const modules: Module[] = [
-  { name: 'assert' },
+  { name: 'assert', description: 'testing and value comparison utilities' },
   { name: 'async_hooks' },
   { name: 'buffer' },
   { name: 'child_process' },

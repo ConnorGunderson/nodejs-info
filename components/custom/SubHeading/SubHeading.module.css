@@ -1,0 +1,3 @@
+.heading {
+  @apply px-1 rounded shadow-md text-lg font-semibold
+}

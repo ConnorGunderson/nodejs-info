@@ -31,17 +31,16 @@ module.exports = {
       },
       animation: {
         wiggle: 'wiggle 5s ease-in-out infinite',
+        'fade-in': 'fadeIn 2s ease-in',
       },
       keyframes: {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-10deg)' },
           '50%': { transform: 'rotate(10deg)' },
         },
-        'wiggle-and-bounce': {
-          '0%': { transform: 'rotate(0deg)' },
-          '25%': { transform: 'rotate(-10deg)' },
-          '75%': { transform: 'rotate(10deg)' },
-          '100%': { transform: 'rotate(0deg)' },
+        fadeIn: {
+          '0%': { opacity: '80%' },
+          '100%': { opacity: '100%' },
         },
       },
     },

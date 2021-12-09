@@ -1,0 +1,19 @@
+.module-section {
+  @apply my-1 inline-block
+}
+
+.section-heading {
+  @apply px-2 rounded shadow-md text-xl font-bold text-nodeLight-3 bg-black hover:bg-nodeDark-6 duration-150 cursor-pointer inline-block hover:ring-nodeDark-1 hover:ring-2
+}
+
+.sub-section {
+  @apply py-2 inline-flex flex-col
+}
+
+.sub-section div {
+  @apply pt-2.5 px-1  inline-block flex-col
+}
+
+.sub-section h3 {
+  @apply px-1 py-0.5 inline rounded shadow-lg bg-nodeLight-1 font-semibold inline-block hover:bg-nodeLight-1 duration-150 cursor-pointer hover:ring-nodeDark-1 hover:ring-2
+}
