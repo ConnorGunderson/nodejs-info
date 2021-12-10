@@ -5,9 +5,9 @@ import AssertPage from './assert'
 
 const ModulesPage = () => {
   const { moduleStep } = useSelector((state: RootState) => state.route)
-  return <PageLayout>{pages[moduleStep]}</PageLayout>
+  return pages[moduleStep]
 }
 
 export default ModulesPage
 
-const pages = [<AssertPage />]
+const pages = [<AssertPage />, <AssertPage />]

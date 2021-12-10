@@ -27,11 +27,11 @@ module.exports = {
           5: '#1d1d1d',
         },
         dark: '#131313',
-        light: '#e1ece0',
+        light: '#fff',
       },
       animation: {
         wiggle: 'wiggle 5s ease-in-out infinite',
-        'fade-in': 'fadeIn 2s ease-in',
+        'fade-in': 'fadeIn .5s ease-in',
       },
       keyframes: {
         wiggle: {
@@ -39,7 +39,7 @@ module.exports = {
           '50%': { transform: 'rotate(10deg)' },
         },
         fadeIn: {
-          '0%': { opacity: '80%' },
+          '0%': { opacity: '70%' },
           '100%': { opacity: '100%' },
         },
       },

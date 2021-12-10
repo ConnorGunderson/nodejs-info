@@ -89,7 +89,9 @@ const Carousel = ({
               <CarouselItem
                 key={item.name}
                 className={
-                  items[moduleStep].name !== item.name ? 'opacity-70' : ''
+                  items[moduleStep].name !== item.name
+                    ? 'opacity-70'
+                    : 'font-semibold'
                 }
                 onClick={(e: React.MouseEvent<HTMLDivElement>) => handleStep(e)}
                 width={'33%'}

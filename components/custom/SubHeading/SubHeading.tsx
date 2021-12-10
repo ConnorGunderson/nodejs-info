@@ -7,8 +7,8 @@ interface SubHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
 
 export const SubHeading = ({ children, ...props }: SubHeadingProps) => {
   return (
-    <h3 className={styles['heading']} {...props}>
-      - {children}
+    <h3 className={styles['sub-heading']} {...props}>
+      {children}
     </h3>
   )
 }

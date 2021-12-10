@@ -1,47 +1,44 @@
 import { AddClassNames } from '@global/types/react'
 import { HTMLAttributes, useState } from 'react'
+import { ClassHeading, SubHeading } from '..'
 import styles from './ModuleSection.module.css'
 
-interface ModuleSectionProps
-  extends Omit<HTMLAttributes<HTMLHeadingElement>, 'className'> {
-  classNames?: AddClassNames<['header', 'logo']>
+interface ModuleSectionProps extends HTMLAttributes<HTMLHeadingElement> {
+  // classNames?: AddClassNames<['header', 'logo']>
   sectionHeader?: string
   subSectionHeaders: string[]
 }
 
 export const ModuleSection = ({
-  classNames,
+  className,
   sectionHeader,
   subSectionHeaders,
 }: ModuleSectionProps) => {
   const [show, setShow] = useState<boolean>(false)
   return (
-    <section className={styles['module-section']}>
+    <div className={styles['module-section'] + ` ${className}`}>
       {sectionHeader && (
         <div>
-          <h2
-            className={styles['section-heading']}
-            onClick={() => setShow(!show)}
-          >
-            - {sectionHeader}
-          </h2>
+          <ClassHeading onClick={() => setShow(!show)}>
+            {sectionHeader}
+          </ClassHeading>
         </div>
       )}
       {(show || !sectionHeader) && (
-        <div
+        <ul
           className={
             styles['sub-section'] + ` ${!sectionHeader ? 'ml-0' : 'ml-10'}`
           }
         >
           {subSectionHeaders.map((h) => {
             return (
-              <div>
-                <h3> - {h}</h3>
-              </div>
+              <li>
+                <SubHeading onClick={() => h}>{h}</SubHeading>
+              </li>
             )
           })}
-        </div>
+        </ul>
       )}
-    </section>
+    </div>
   )
 }

@@ -5,9 +5,13 @@ interface ClassHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   name?: string
 }
 
-export const ClassHeading = ({ children, ...props }: ClassHeadingProps) => {
+export const ClassHeading = ({
+  children,
+  className,
+  ...props
+}: ClassHeadingProps) => {
   return (
-    <h2 className={styles['heading']} {...props}>
+    <h2 className={styles['heading'] + ` ${className}`} {...props}>
       {children}
     </h2>
   )

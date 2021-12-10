@@ -1,11 +1,11 @@
 import { useRouter } from 'next/dist/client/router'
 import { useDispatch } from 'react-redux'
-import { changeRoute } from 'store/slices'
-export const useChangeRoute = () => {
+import { setRoute } from 'store/slices'
+export const useSetRoute = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   return (newRoute: string) => {
-    dispatch(changeRoute(newRoute))
+    dispatch(setRoute(newRoute))
     router.push(newRoute)
   }
 }
