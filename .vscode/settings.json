@@ -12,6 +12,6 @@
     "typescriptreact"
   ],
   "stylelint.validate": ["css", "scss"],
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.alwaysShowStatus": true
 }

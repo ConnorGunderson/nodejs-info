@@ -1,8 +1,11 @@
 import { ModuleSection } from '@components/custom'
+
 import { PageLayout } from '@components/layout'
-const AssertPage = () => {
+import { AssertionError } from './submodules'
+
+const AssertPage = function () {
   return (
-    <PageLayout>
+    <PageLayout subModuleComponents={subRoutes}>
       <ModuleSection
         sectionHeader=".AssertionError"
         subSectionHeaders={['assert.AssertionError(options)']}
@@ -41,6 +44,11 @@ const AssertPage = () => {
       />
     </PageLayout>
   )
+}
+
+const subRoutes = {
+  '.AssertionError': <AssertionError />,
+  'assert.AssertionError(options)': <AssertionError />,
 }
 
 export default AssertPage

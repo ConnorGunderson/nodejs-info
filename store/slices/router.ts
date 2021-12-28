@@ -3,13 +3,13 @@ import { modules } from 'global/meta'
 
 type RouterState = {
   currentModuleRoute: string
-  currentModule: string
+  subModule: string
   moduleStep: number
 }
 
 const initialState = {
   currentModuleRoute: '',
-  currentModule: '',
+  subModule: '',
   moduleStep: 0,
 } as RouterState
 
@@ -31,11 +31,15 @@ export const routeSlice = createSlice({
         state.moduleStep = action.payload
       }
     },
-    setModule: (state, action: PayloadAction<string>) => {
-      state.currentModule = action.payload
+    setSubModule: (state, action: PayloadAction<string>) => {
+      state.subModule = action.payload
     },
   },
 })
 
-export const { setRoute, incrementModuleStep, decrementModuleStep, setModule } =
-  routeSlice.actions
+export const {
+  setRoute,
+  incrementModuleStep,
+  decrementModuleStep,
+  setSubModule,
+} = routeSlice.actions

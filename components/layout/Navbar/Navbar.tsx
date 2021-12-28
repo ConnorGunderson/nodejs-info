@@ -4,6 +4,7 @@ import { useRouter } from 'next/dist/client/router'
 import React, { HTMLAttributes, useEffect, useState } from 'react'
 import { FaChevronCircleLeft } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
+import { useSetRoute } from 'store/hooks'
 import { decrementModuleStep, incrementModuleStep } from 'store/slices'
 import { RootState } from 'store/store'
 import styles from './Navbar.module.css'
@@ -59,7 +60,15 @@ const Carousel = ({
   items: { name: string }[]
 }) => {
   const { moduleStep } = useSelector((state: RootState) => state.route)
+  const { setRoute, setSubModule } = useSetRoute()
   const dispatch = useDispatch()
+  const router = useRouter()
+  useEffect(() => {
+    if (router.query['name']) {
+      setRoute(`/modules?name=${modules[moduleStep].name}`)
+      setSubModule('')
+    }
+  }, [moduleStep])
 
   const handleStep = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()

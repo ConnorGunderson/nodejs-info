@@ -1,12 +1,32 @@
 import { ClassHeading } from '@components/custom'
 import { ComponentWithChildren } from '@global/types/index'
 import { modules } from 'global/meta'
-import { useSelector } from 'react-redux'
+import { useRouter } from 'next/dist/client/router'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSubModule } from 'store/slices'
 import { RootState } from 'store/store'
 import { Navbar } from '.'
 
-export const PageLayout = ({ children }: ComponentWithChildren) => {
-  const { moduleStep } = useSelector((state: RootState) => state.route)
+interface PageLayoutProps extends ComponentWithChildren {
+  subModuleComponents: Record<string, JSX.Element>
+}
+
+export const PageLayout = ({
+  children,
+  subModuleComponents,
+}: PageLayoutProps) => {
+  const { moduleStep, subModule } = useSelector(
+    (state: RootState) => state.route
+  )
+  const dispatch = useDispatch()
+  const router = useRouter()
+  useEffect(() => {
+    const routerQuery = router?.query['subModule']
+    if (typeof routerQuery == 'string') {
+      dispatch(setSubModule(routerQuery))
+    }
+  }, [router.query])
   return (
     <>
       <Navbar />
@@ -25,9 +45,11 @@ export const PageLayout = ({ children }: ComponentWithChildren) => {
           <div className="w-2/5 flex flex-col">{children}</div>
           <div className="w-3/5 inline-flex flex-col">
             <div className="block mb-2">
-              <ClassHeading className="inline-block">.hey</ClassHeading>
+              <ClassHeading className="inline-block">{subModule}</ClassHeading>
             </div>
-            <div className="p-3 shadow-inner flex-1 rounded-sm bg-nodeLight-1"></div>
+            <div className="p-3 shadow-inner flex-1 rounded-sm bg-nodeLight-1">
+              {subModule && subModuleComponents[subModule]}
+            </div>
           </div>
         </section>
       </main>
