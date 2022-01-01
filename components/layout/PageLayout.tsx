@@ -21,16 +21,18 @@ export const PageLayout = ({
   )
   const dispatch = useDispatch()
   const router = useRouter()
+
   useEffect(() => {
     const routerQuery = router?.query['subModule']
     if (typeof routerQuery == 'string') {
       dispatch(setSubModule(routerQuery))
     }
   }, [router.query])
+
   return (
     <>
       <Navbar />
-      <main className="p-2 flex-1 flex flex-col overflow-y-scroll animate-fade-in">
+      <main className="p-2 flex-1 flex flex-col overflow-y-scroll">
         <header className="flex items-center p-2">
           <h1 className="px-2 inline-block rounded text-3xl font-bold text-nodeLight-4">
             {modules[moduleStep].name}

@@ -1,13 +1,8 @@
-import { PageLayout } from '@components/layout'
-import { useSelector } from 'react-redux'
-import { RootState } from 'store/store'
-import AssertPage from './assert'
+import { useRouter } from 'next/dist/client/router'
 
 const ModulesPage = () => {
-  const { moduleStep } = useSelector((state: RootState) => state.route)
-  return pages[moduleStep]
+  const router = useRouter()
+  return router.push('/modules/assert')
 }
 
 export default ModulesPage
-
-const pages = [<AssertPage />, <AssertPage />]

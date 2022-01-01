@@ -22,12 +22,11 @@ export const Navbar = () => {
 
 const ModuleList = () => {
   const router = useRouter()
-  const [index] = useState<number>(() => {
-    const mod = modules.find(
-      (module) => module.name == router.asPath.split('#')[1]
-    )
-    return mod ? modules.indexOf(mod) : -1
-  })
+  const mod = modules.find(
+    (module) => module.name == router.asPath.split('#')[1]
+  )
+  const index = mod ? modules.indexOf(mod) : -1
+
   return <Carousel moduleIndex={index} items={modules} />
 }
 
@@ -64,10 +63,8 @@ const Carousel = ({
   const dispatch = useDispatch()
   const router = useRouter()
   useEffect(() => {
-    if (router.query['name']) {
-      setRoute(`/modules?name=${modules[moduleStep].name}`)
-      setSubModule('')
-    }
+    setRoute(`/modules/${modules[moduleStep].name}`)
+    setSubModule('')
   }, [moduleStep])
 
   const handleStep = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -75,7 +72,6 @@ const Carousel = ({
     const foundItem = items.find(
       (item) => item.name === e.currentTarget.innerText
     )
-
     const itemIndex = foundItem ? items.indexOf(foundItem) : -1
     return dispatch(incrementModuleStep(itemIndex))
   }

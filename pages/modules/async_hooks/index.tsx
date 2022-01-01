@@ -1,43 +1,54 @@
+import { ModuleSection } from '@components/custom'
+
 import { PageLayout } from '@components/layout'
-import { useEffect, useState } from 'react'
-import styles from './asyncHooks.module.css'
+import { AssertionError } from './submodules'
 
-const AssertPage = () => {
-  const [time, setTime] = useState(0)
-  const initialTime = Date.now()
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const newTime = time + (Date.now() - initialTime) / 1000
-      if (newTime > 12.5 || time > 12.5) {
-        initialTime === Date.now()
-        return setTime(0)
-      }
-      return setTime(newTime)
-    }, 1)
-
-    return () => clearTimeout(timer)
-  })
+const AssertPage = function () {
   return (
-    <PageLayout>
-      <div className="circle_box text-center">
-        <svg className={styles['svg']}>
-          <circle r="95" cx="100" cy="100" />
-          <circle
-            r="95"
-            cx="100"
-            cy="100"
-            style={{
-              strokeDasharray: 'calc(100 * 6)',
-              strokeDashoffset: `calc(((100*6) - (100 * 6) * ${
-                time * 8
-              })/ 100)`,
-            }}
-          />
-        </svg>
-        {Math.round(time)}
-      </div>
+    <PageLayout subModuleComponents={subRoutes}>
+      <ModuleSection
+        sectionHeader=".AssertionError"
+        subSectionHeaders={['assert.AssertionError(options)']}
+      />
+      <ModuleSection
+        sectionHeader=".CallTracker"
+        subSectionHeaders={[
+          'assert.CallTracker()',
+          'tracker.calls([fn][, exact])',
+          'tracker.report()',
+          'tracker.verify()',
+        ]}
+      />
+      <ModuleSection
+        subSectionHeaders={[
+          'assert(value[, message])',
+          'assert.deepEqual(actual, expected[, message])',
+          'assert.deepStrictEqual(actual, expected[, message])',
+          'assert.doesNotMatch(string, regexp[, message])',
+          'assert.doesNotReject(asyncFn[, error][, message])',
+          'assert.doesNotThrow(fn[, error][, message])',
+          'assert.equal(actual, expected[, message])',
+          'assert.fail([message])',
+          'assert.fail(actual, expected[, message[, operator[, stackStartFn]]])',
+          'assert.ifError(value)',
+          'assert.match(string, regexp[, message])',
+          'assert.notDeepEqual(actual, expected[, message])',
+          'assert.notDeepStrictEqual(actual, expected[, message])',
+          'assert.notEqual(actual, expected[, message])',
+          'assert.notStrictEqual(actual, expected[, message])',
+          'assert.ok(value[, message])',
+          'assert.rejects(asyncFn[, error][, message])',
+          'assert.strictEqual(actual, expected[, message])',
+          'assert.throws(fn[, error][, message])',
+        ]}
+      />
     </PageLayout>
   )
+}
+
+const subRoutes = {
+  '.AssertionError': <AssertionError />,
+  'assert.AssertionError(options)': <AssertionError />,
 }
 
 export default AssertPage

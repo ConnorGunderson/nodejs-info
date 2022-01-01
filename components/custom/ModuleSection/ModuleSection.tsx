@@ -20,22 +20,19 @@ export const ModuleSection = ({
   subSectionHeaders,
 }: ModuleSectionProps) => {
   const [show, setShow] = useState<boolean>(false)
-  const { moduleStep } = useSelector((state: RootState) => state.route)
   const { setRoute } = useSetRoute()
   const router = useRouter()
 
-  const handleClassHeadingClick = (sectionHeader: string) => {
-    setRoute(
-      router.pathname +
-        `?name=${modules[moduleStep].name}&subModule=${sectionHeader}`
-    )
-    return setShow(!show)
+  const handleClassHeadingClick = () => {
+    setShow(!show)
+    return setRoute(router.pathname + `?subModule=${sectionHeader}`)
   }
+
   return (
     <div className={styles['module-section'] + ` ${className}`}>
       {sectionHeader && (
         <div>
-          <ClassHeading onClick={() => handleClassHeadingClick(sectionHeader)}>
+          <ClassHeading onClick={() => handleClassHeadingClick()}>
             {sectionHeader}
           </ClassHeading>
         </div>
@@ -46,18 +43,15 @@ export const ModuleSection = ({
             styles['sub-section'] + ` ${!sectionHeader ? 'ml-0' : 'ml-10'}`
           }
         >
-          {subSectionHeaders.map((h) => {
+          {subSectionHeaders.map((subSectionHeader) => {
             return (
-              <li key={h}>
+              <li key={subSectionHeader}>
                 <SubHeading
                   onClick={() =>
-                    setRoute(
-                      router.pathname +
-                        `?name=${modules[moduleStep].name}&subModule=${h}`
-                    )
+                    setRoute(router.pathname + `?subModule=${subSectionHeader}`)
                   }
                 >
-                  {h}
+                  {subSectionHeader}
                 </SubHeading>
               </li>
             )
