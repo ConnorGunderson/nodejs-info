@@ -1,1 +1,1 @@
-export * from './AssertionError.class'
+export * from './AssertionError/AssertionError'

@@ -1,0 +1,3 @@
+.node-link {
+  @apply flex items-center font-bold cursor-pointer;
+}
