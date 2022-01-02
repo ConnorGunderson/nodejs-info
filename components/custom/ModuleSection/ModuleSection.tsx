@@ -1,10 +1,6 @@
-import { AddClassNames } from '@global/types/react'
-import { modules } from 'global/meta'
 import { useRouter } from 'next/dist/client/router'
 import { HTMLAttributes, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useSetRoute } from 'store/hooks'
-import { RootState } from 'store/store'
+import { useRoute } from 'store/hooks'
 import { ClassHeading, SubHeading } from '..'
 import styles from './ModuleSection.module.css'
 
@@ -20,7 +16,7 @@ export const ModuleSection = ({
   subSectionHeaders,
 }: ModuleSectionProps) => {
   const [show, setShow] = useState<boolean>(false)
-  const { setRoute } = useSetRoute()
+  const { setRoute } = useRoute()
   const router = useRouter()
 
   const handleClassHeadingClick = () => {

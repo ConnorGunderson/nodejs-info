@@ -3,10 +3,10 @@ import styles from '@styles/index.module.css'
 import { Card } from '@components/base/Card/Card'
 import { NodeHeader } from '@components/custom'
 import { modules } from 'global/meta'
-import { useSetRoute } from 'store/hooks'
+import { useRoute } from 'store/hooks'
 
 export default function Home() {
-  const { setRoute } = useSetRoute()
+  const { setRoute } = useRoute()
   return (
     <main className="flex-1 flex flex-col">
       <nav className={styles['landing-navbar']}>
@@ -30,7 +30,7 @@ export default function Home() {
           .map(({ name, description }) => {
             return (
               <Card
-                onClick={() => setRoute(`/modules?name=${name}`)}
+                onClick={() => setRoute(`/modules/${name}`)}
                 className="cursor-pointer m-auto w-full h-full opacity-80 hover:opacity-100 bg-nodeLight-1 hover:bg-nodeLight-2 transform duration-300 hover:ring-2 hover:ring-nodeDark-6 "
               >
                 <Card.Header className="flex justify-center font-bold">

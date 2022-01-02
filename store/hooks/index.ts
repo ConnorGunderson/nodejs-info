@@ -1,1 +1,1 @@
-export * from './useSetRoute'
+export * from './useRoute'

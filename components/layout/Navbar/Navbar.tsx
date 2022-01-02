@@ -3,10 +3,9 @@ import { modules } from 'global/meta'
 import { useRouter } from 'next/dist/client/router'
 import React, { HTMLAttributes, useEffect, useState } from 'react'
 import { FaChevronCircleLeft } from 'react-icons/fa'
-import { useDispatch, useSelector } from 'react-redux'
-import { useSetRoute } from 'store/hooks'
+import { useDispatch } from 'react-redux'
+import { useRoute } from 'store/hooks'
 import { decrementModuleStep, incrementModuleStep } from 'store/slices'
-import { RootState } from 'store/store'
 import styles from './Navbar.module.css'
 
 export const Navbar = () => {
@@ -58,22 +57,25 @@ const Carousel = ({
   moduleIndex: number
   items: { name: string }[]
 }) => {
-  const { moduleStep } = useSelector((state: RootState) => state.route)
-  const { setRoute, setSubModule } = useSetRoute()
+  const { setRoute, moduleStep } = useRoute()
   const dispatch = useDispatch()
-  const router = useRouter()
-  useEffect(() => {
-    setRoute(`/modules/${modules[moduleStep].name}`)
-    setSubModule('')
-  }, [moduleStep])
 
-  const handleStep = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleUpStep = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
     const foundItem = items.find(
       (item) => item.name === e.currentTarget.innerText
     )
     const itemIndex = foundItem ? items.indexOf(foundItem) : -1
-    return dispatch(incrementModuleStep(itemIndex))
+
+    dispatch(incrementModuleStep(itemIndex))
+    return setRoute(`/modules/${modules[itemIndex].name}`)
+  }
+
+  const handleDownStep = () => {
+    if (moduleStep > 0) {
+      dispatch(decrementModuleStep())
+      return setRoute(`/modules/${modules[moduleStep - 1].name}`)
+    }
   }
 
   return (
@@ -82,7 +84,7 @@ const Carousel = ({
       style={{ width: '30rem' }}
     >
       <a className="z-10 cursor-pointer">
-        <FaChevronCircleLeft onClick={() => dispatch(decrementModuleStep())} />
+        <FaChevronCircleLeft onClick={() => handleDownStep()} />
       </a>
       <figure className="overflow-hidden z-0 flex-1">
         <div
@@ -98,7 +100,9 @@ const Carousel = ({
                     ? 'opacity-70'
                     : 'font-semibold'
                 }
-                onClick={(e: React.MouseEvent<HTMLDivElement>) => handleStep(e)}
+                onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+                  handleUpStep(e)
+                }
                 width={'33%'}
               >
                 {item.name}

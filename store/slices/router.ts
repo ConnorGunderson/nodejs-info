@@ -2,13 +2,11 @@ import { Action, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { modules } from 'global/meta'
 
 type RouterState = {
-  currentModuleRoute: string
   subModule: string
   moduleStep: number
 }
 
 const initialState = {
-  currentModuleRoute: '',
   subModule: '',
   moduleStep: 0,
 } as RouterState
@@ -17,9 +15,6 @@ export const routeSlice = createSlice({
   name: 'router',
   initialState,
   reducers: {
-    setRoute: (state, action: PayloadAction<string>) => {
-      state.currentModuleRoute = action.payload
-    },
     decrementModuleStep: (state) => {
       state.moduleStep > 0 && state.moduleStep--
     },
@@ -37,9 +32,5 @@ export const routeSlice = createSlice({
   },
 })
 
-export const {
-  setRoute,
-  incrementModuleStep,
-  decrementModuleStep,
-  setSubModule,
-} = routeSlice.actions
+export const { incrementModuleStep, decrementModuleStep, setSubModule } =
+  routeSlice.actions

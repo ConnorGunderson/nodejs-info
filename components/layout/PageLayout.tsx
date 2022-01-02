@@ -3,7 +3,8 @@ import { ComponentWithChildren } from '@global/types/index'
 import { modules } from 'global/meta'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useRoute } from 'store/hooks'
 import { setSubModule } from 'store/slices'
 import { RootState } from 'store/store'
 import { Navbar } from '.'
@@ -16,9 +17,8 @@ export const PageLayout = ({
   children,
   subModuleComponents,
 }: PageLayoutProps) => {
-  const { moduleStep, subModule } = useSelector(
-    (state: RootState) => state.route
-  )
+  const { moduleStep, subModule } = useRoute()
+
   const dispatch = useDispatch()
   const router = useRouter()
 
