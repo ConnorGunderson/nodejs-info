@@ -3,10 +3,7 @@ import { ComponentWithChildren } from '@global/types/index'
 import { modules } from 'global/meta'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import { useRoute } from 'store/hooks'
-import { setSubModule } from 'store/slices'
-import { RootState } from 'store/store'
 import { Navbar } from '.'
 
 interface PageLayoutProps extends ComponentWithChildren {
@@ -17,17 +14,16 @@ export const PageLayout = ({
   children,
   subModuleComponents,
 }: PageLayoutProps) => {
-  const { moduleStep, subModule } = useRoute()
+  const { moduleStep, subModule, setSubModule } = useRoute()
 
-  const dispatch = useDispatch()
   const router = useRouter()
 
   useEffect(() => {
     const routerQuery = router?.query['subModule']
     if (typeof routerQuery == 'string') {
-      dispatch(setSubModule(routerQuery))
+      setSubModule(routerQuery)
     }
-  }, [router.query])
+  }, [router.query, setSubModule])
 
   return (
     <>
@@ -50,7 +46,9 @@ export const PageLayout = ({
               <ClassHeading className="inline-block">{subModule}</ClassHeading>
             </div>
             <div className="p-3 shadow-inner flex-1 rounded-sm bg-nodeLight-1">
-              {subModule && subModuleComponents[subModule]}
+              <section className="flex flex-col animate-fade-in">
+                {subModule && subModuleComponents[subModule]}
+              </section>
             </div>
           </div>
         </section>

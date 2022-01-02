@@ -2,7 +2,7 @@ import { NodeCode, NodeLink } from '@components/custom'
 
 export const AssertionError = () => {
   return (
-    <section className="flex flex-col">
+    <>
       <header className="flex justify-between">
         <div className="flex items-end">
           <h2 className="font-bold text-3xl">AssertionError -</h2>
@@ -14,11 +14,30 @@ export const AssertionError = () => {
       </header>
       <p className="py-5">
         Error's thrown by the assert module within nodejs will be an instance of
-        an AssertionError
+        an AssertionError.
       </p>
-      <NodeCode moduleVar="assert" moduleName="assert">
-        <code>assert.AssertionError</code>
-      </NodeCode>
-    </section>
+      <NodeCode moduleImports={[['assert', 'assert']]}>{example}</NodeCode>
+    </>
   )
 }
+
+const example = `
+const { message } = new assert.AssertionError({  
+  actual: 1,
+  expected: 2,
+  operator: "strictEqual", 
+})
+
+try {
+  assert.strictEqual(1, 2) // FAILURE, the resulting error will be the same as above
+} catch(err) {
+  assert(err instanceof assert.AssertionError)
+  assert.strictEqual(err.message, message)
+  assert.strictEqual(err.name, 'AssertionError');
+  assert.strictEqual(err.actual, 1);
+  assert.strictEqual(err.expected, 2);
+  assert.strictEqual(err.code, 'ERR_ASSERTION');
+  assert.strictEqual(err.operator, 'strictEqual');
+  assert.strictEqual(err.generatedMessage, true);
+}
+`

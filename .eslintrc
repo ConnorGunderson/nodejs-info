@@ -3,12 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "airbnb-typescript",
-    "eslint:recommended"
-  ],
+  "extends": ["eslint:recommended", "next"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -26,11 +21,12 @@
     }
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "import", "react-hooks"],
+  "plugins": ["import"],
   "rules": {
     "import/prefer-default-export": "off",
-    "react/function-component-definition": "off",
     "arrow-body-style": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
+    "no-undef": "off"
   }
 }

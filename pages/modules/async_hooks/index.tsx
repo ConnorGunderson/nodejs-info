@@ -7,39 +7,24 @@ const AssertPage = function () {
   return (
     <PageLayout subModuleComponents={subRoutes}>
       <ModuleSection
-        sectionHeader=".AssertionError"
-        subSectionHeaders={['assert.AssertionError(options)']}
-      />
-      <ModuleSection
-        sectionHeader=".CallTracker"
+        sectionHeader="AsyncHook"
         subSectionHeaders={[
-          'assert.CallTracker()',
-          'tracker.calls([fn][, exact])',
-          'tracker.report()',
-          'tracker.verify()',
+          'asyncHook.enable()',
+          'asyncHook.disable()',
+          'async_hooks.executionAsyncResource()',
+          'async_hooks.executionAsyncId()',
+          'async_hooks.triggerAsyncId()',
+          'async_hooks.asyncWrapProviders',
         ]}
       />
       <ModuleSection
+        sectionHeader="Hook callbacks"
         subSectionHeaders={[
-          'assert(value[, message])',
-          'assert.deepEqual(actual, expected[, message])',
-          'assert.deepStrictEqual(actual, expected[, message])',
-          'assert.doesNotMatch(string, regexp[, message])',
-          'assert.doesNotReject(asyncFn[, error][, message])',
-          'assert.doesNotThrow(fn[, error][, message])',
-          'assert.equal(actual, expected[, message])',
-          'assert.fail([message])',
-          'assert.fail(actual, expected[, message[, operator[, stackStartFn]]])',
-          'assert.ifError(value)',
-          'assert.match(string, regexp[, message])',
-          'assert.notDeepEqual(actual, expected[, message])',
-          'assert.notDeepStrictEqual(actual, expected[, message])',
-          'assert.notEqual(actual, expected[, message])',
-          'assert.notStrictEqual(actual, expected[, message])',
-          'assert.ok(value[, message])',
-          'assert.rejects(asyncFn[, error][, message])',
-          'assert.strictEqual(actual, expected[, message])',
-          'assert.throws(fn[, error][, message])',
+          'init(asyncId, type, triggerAsyncId, resource)',
+          'before(asyncId)',
+          'after(asyncId)',
+          'destroy(asyncId)',
+          'promiseResolve(asyncId)',
         ]}
       />
     </PageLayout>
@@ -47,7 +32,7 @@ const AssertPage = function () {
 }
 
 const subRoutes = {
-  '.AssertionError': <AssertionError />,
+  AsyncHook: <AssertionError />,
   'assert.AssertionError(options)': <AssertionError />,
 }
 

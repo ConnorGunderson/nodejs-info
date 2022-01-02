@@ -1,11 +1,10 @@
 import { useRouter } from 'next/dist/client/router'
-import { HTMLAttributes, useState } from 'react'
+import React, { HTMLAttributes, useState } from 'react'
 import { useRoute } from 'store/hooks'
 import { ClassHeading, SubHeading } from '..'
 import styles from './ModuleSection.module.css'
 
 interface ModuleSectionProps extends HTMLAttributes<HTMLHeadingElement> {
-  // classNames?: AddClassNames<['header', 'logo']>
   sectionHeader?: string
   subSectionHeaders: string[]
 }
@@ -16,11 +15,17 @@ export const ModuleSection = ({
   subSectionHeaders,
 }: ModuleSectionProps) => {
   const [show, setShow] = useState<boolean>(false)
-  const { setRoute } = useRoute()
+  const { setRoute, subModule } = useRoute()
   const router = useRouter()
 
   const handleClassHeadingClick = () => {
-    setShow(!show)
+    if (
+      subModule === sectionHeader ||
+      subSectionHeaders.filter((sh) => sh !== subModule).length
+    ) {
+      setShow(!show)
+    }
+
     return setRoute(router.pathname + `?subModule=${sectionHeader}`)
   }
 
