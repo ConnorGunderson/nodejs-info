@@ -27,6 +27,7 @@
     "arrow-body-style": "off",
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "no-unused-vars": "warn"
   }
 }

@@ -1,7 +1,7 @@
 import { ModuleSection } from '@components/custom'
 
 import { PageLayout } from '@components/layout'
-import { AssertionError } from './submodules'
+import { AssertionError, AssertionErrorOptions } from './submodules'
 
 const AssertPage = function () {
   return (
@@ -48,7 +48,7 @@ const AssertPage = function () {
 
 const subRoutes = {
   '.AssertionError': <AssertionError />,
-  'assert.AssertionError(options)': <AssertionError />,
+  'assert.AssertionError(options)': <AssertionErrorOptions />,
 }
 
 export default AssertPage

@@ -29,6 +29,9 @@ module.exports = {
         dark: '#131313',
         light: '#fff',
       },
+      listStyleType: {
+        circle: 'circle',
+      },
       animation: {
         wiggle: 'wiggle 5s ease-in-out infinite',
         'fade-in': 'fadeIn .5s ease-in',

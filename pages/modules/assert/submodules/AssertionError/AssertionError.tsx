@@ -4,7 +4,7 @@ export const AssertionError = () => {
   return (
     <>
       <header className="flex justify-between">
-        <div className="flex items-end">
+        <div>
           <h2 className="font-bold text-3xl">AssertionError -</h2>
           <span className="pl-2 text-2xl">
             Main class of the <i>"assert"</i> module
